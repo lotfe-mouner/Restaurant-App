@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../providers/language_provider.dart';
 import '../screens/category_meal_screens.dart';
+import 'package:provider/provider.dart';
 
 class CategoryItem extends StatelessWidget {
   final String id;
@@ -9,8 +11,7 @@ class CategoryItem extends StatelessWidget {
   CategoryItem(this.id, this.title, this.color);
   
   void selectCategory(BuildContext ctx){
-    Navigator.of(ctx).pushNamed(
-      CategoryMealScreens.routeName,
+    Navigator.of(ctx).pushNamed(CategoryMealScreens.routeName,
     arguments: {
       'id':id,
       'title':title,
@@ -20,13 +21,14 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var lan=Provider.of<LanguageProvider>(context,listen:true);
     return InkWell(
       onTap: ()=> selectCategory(context),
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Container(
         padding: EdgeInsets.all(15),
-        child: Text(title,style: Theme.of(context).textTheme.subtitle1,),
+        child: Text(lan.getTexts('cat-$id').toString(),style: Theme.of(context).textTheme.headline6,),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import '../modules/meal.dart';
+import 'package:meal_app/providers/language_provider.dart';
+import 'package:meal_app/providers/meal_provider.dart';
+import 'package:meal_app/providers/theme_provider.dart';
+
 import '../widgets/main_drawer.dart';
 import 'Categories_Screens.dart';
 import 'favorite_screen.dart';
+import 'package:provider/provider.dart';
 
 class TabScreens extends StatefulWidget {
-List <Meal> favoriteMeals;
-TabScreens(this.favoriteMeals);
+
+static const routeName = 'tab_screen';
 
   @override
   _TabScreensState createState() => _TabScreensState();
@@ -14,19 +18,26 @@ TabScreens(this.favoriteMeals);
 
 class _TabScreensState extends State<TabScreens> {
 
-   List<Map<String,Object>> pages;
-  int pageIndex=0;
+   late List<Map<String,Object>> pages;
+   int pageIndex=0;
 
 
   @override
   void initState() {
+
+    Provider.of<MealProvider>(context,listen: false).setData();
+    Provider.of<ThemeProvider>(context,listen: false).getThemeMode();
+    Provider.of<ThemeProvider>(context,listen: false).getThemeColors();
+    Provider.of<LanguageProvider>(context,listen: false).getLan();
+
+
     pages=[
     {
     'page': CategoriesScreens(),
     'title':'Categories'
     },
     {
-    'page': FavoriteScreen(widget.favoriteMeals),
+    'page': FavoriteScreen(),
     'title':'Your Favorites'
     }
     ];
@@ -42,26 +53,41 @@ class _TabScreensState extends State<TabScreens> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(pages[pageIndex]['title'] ),
-      ),
-      body:pages[pageIndex]['page'] ,
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: selected,
-        backgroundColor: Theme.of(context).primaryColor,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.category),title: Text("Categories")),
-          BottomNavigationBarItem(icon: Icon(Icons.star),title: Text("Favorite"))
-        ],
+    var lan = Provider.of<LanguageProvider>(context,listen:true);
 
-        selectedItemColor: Theme.of(context).accentColor,
-        unselectedItemColor: Colors.white,
-        currentIndex: pageIndex,
+    pages=[
+      {
+        'page': CategoriesScreens(),
+        'title': lan.getTexts('categories')
+      },
+      {
+        'page': FavoriteScreen(),
+        'title': lan.getTexts('your_favorites')
+      }
+    ];
 
-      ),
-      drawer: MainDrawer(),
-      );
+    return Directionality(
+      textDirection: lan.isEn? TextDirection.ltr : TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(pages[pageIndex]['title'].toString()),
+        ),
+        body:pages[pageIndex]['page'] as Widget,
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: selected,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.category),label: lan.getTexts('categories').toString()),
+            BottomNavigationBarItem(icon: Icon(Icons.star),label: lan.getTexts('your_favorites').toString())
+          ],
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          selectedItemColor: Theme.of(context).colorScheme.secondary,
+          unselectedItemColor: Colors.white,
+          currentIndex: pageIndex,
+
+        ),
+        drawer: MainDrawer(),
+        ),
+    );
   }
 
 }
