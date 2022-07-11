@@ -18,8 +18,7 @@ class _FilterScreensState extends State<FilterScreens> {
 
 
 
-  Widget buildListtile(
-      String title, String subtitle, bool currentValue, Function(bool) updateValue) {
+  Widget buildListtile(String title, String subtitle, bool currentValue, Function(bool) updateValue) {
     return SwitchListTile(
       title: Text(title),
       subtitle: Text(subtitle),
@@ -41,14 +40,6 @@ class _FilterScreensState extends State<FilterScreens> {
             pinned: false,
             elevation: 5,
             title: Text(lan.getTexts('filters_appBar_title').toString()),
-           actions: [
-            IconButton(
-              icon: Icon(Icons.save),
-              onPressed: () {
-                Provider.of<MealProvider>(context, listen: false).setFilters();
-              },
-            )
-          ],
           ),
           SliverList(delegate: SliverChildListDelegate([
             Container(
@@ -65,6 +56,7 @@ class _FilterScreensState extends State<FilterScreens> {
                         (newValue) {
                       setState(() {
                         currentFilters['gluten'] = newValue;
+                        Provider.of<MealProvider>(context, listen: false).setFilters();
                       });
                     },
                   ),
@@ -75,6 +67,7 @@ class _FilterScreensState extends State<FilterScreens> {
                         (newValue) {
                       setState(() {
                         currentFilters['lactose'] = newValue;
+                        Provider.of<MealProvider>(context, listen: false).setFilters();
                       });
                     },
                   ),
@@ -85,6 +78,7 @@ class _FilterScreensState extends State<FilterScreens> {
                         (newValue) {
                       setState(() {
                         currentFilters['vegetarian'] = newValue;
+                        Provider.of<MealProvider>(context, listen: false).setFilters();
                       });
                     },
                   ),
@@ -95,6 +89,7 @@ class _FilterScreensState extends State<FilterScreens> {
                         (newValue) {
                       setState(() {
                         currentFilters['vegan'] = newValue;
+                        Provider.of<MealProvider>(context, listen: false).setFilters();
                       });
                     },
                   ),

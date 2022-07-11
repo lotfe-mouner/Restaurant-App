@@ -478,7 +478,7 @@ class LanguageProvider with ChangeNotifier {
       'Mix until egg whites are thoroughly incorporated into the chocolate.',
       'Add the rest of the egg whites; gently fold into the chocolate with a spatula, lifting from the bottom and folding over.',
       'Stop mixing after the egg white disappears. Divide mixture between 2 prepared ramekins. Place ramekins on prepared baking sheet.',
-      'Bake in preheated oven until scuffles are puffed and have risen above the top of the rims, 12 to 15 minutes.',
+      'Bake in preheated oven until scuffles are puffed and have risen above the top  of the rims, 12 to 15 minutes.',
     ],
     "steps-m10": [
       'Wash, peel and cut the asparagus',

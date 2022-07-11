@@ -1,57 +1,69 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'modules/category.dart';
 import 'modules/meal.dart';
 
-const DUMMY_CATEGORIES = const [
+List<Category> DUMMY_CATEGORIES = [
   Category(
     id: 'c1',
     title: 'Italian',
     color: Colors.purple,
+    imageURL: AssetImage('assets/images/italian.jpg'),
   ),
   Category(
-    id: 'c2',
-    title: 'Quick & Easy',
-    color: Colors.red,
+      id: 'c2',
+      title: 'Quick & Easy',
+      color: Colors.red,
+    imageURL:AssetImage('assets/images/quick.jpg'),
   ),
   Category(
     id: 'c3',
     title: 'Hamburgers',
     color: Colors.orange,
+    imageURL:AssetImage('assets/images/hamburgers.jpg')
   ),
   Category(
     id: 'c4',
     title: 'German',
     color: Colors.amber,
+    imageURL:AssetImage('assets/images/german.jpg')
   ),
   Category(
     id: 'c5',
     title: 'Light & Lovely',
     color: Colors.blue,
+    imageURL:AssetImage('assets/images/light.jpg')
   ),
   Category(
     id: 'c6',
     title: 'Exotic',
     color: Colors.green,
+    imageURL:AssetImage('assets/images/exotic.jpg')
   ),
   Category(
     id: 'c7',
     title: 'Breakfast',
     color: Colors.lightBlue,
+    imageURL:AssetImage('assets/images/breakfast.jpg')
   ),
   Category(
     id: 'c8',
     title: 'Asian',
     color: Colors.lightGreen,
+    imageURL:AssetImage('assets/images/Asian.jpg')
   ),
   Category(
     id: 'c9',
     title: 'French',
     color: Colors.pink,
+    imageURL:AssetImage('assets/images/chocolate.jpg')
   ),
   Category(
     id: 'c10',
     title: 'Summer',
     color: Colors.teal,
+    imageURL:AssetImage('assets/images/italian.jpg')
   ),
 ];
 
@@ -65,8 +77,7 @@ const DUMMY_MEALS = const [
     title: 'Spaghetti with Tomato Sauce',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
+    imageUrl: 'assets/images/spaghetti.jpg',
     duration: 20,
     ingredients: [
       '4 Tomatoes',
@@ -98,8 +109,7 @@ const DUMMY_MEALS = const [
     title: 'Toast Hawaii',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
+      imageUrl: 'assets/images/toast.jpg',
     duration: 10,
     ingredients: [
       '1 Slice White Bread',
@@ -127,8 +137,7 @@ const DUMMY_MEALS = const [
     title: 'Classic Hamburger',
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
+    imageUrl: 'assets/images/burger.jpg',
     duration: 45,
     ingredients: [
       '300g Cattle Hack',
@@ -158,8 +167,7 @@ const DUMMY_MEALS = const [
     title: 'Wiener Schnitzel',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Challenging,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
+    imageUrl: 'assets/images/schnitzel.jpg',
     duration: 60,
     ingredients: [
       '8 Veal Cutlets',
@@ -195,8 +203,7 @@ const DUMMY_MEALS = const [
     title: 'Salad with Smoked Salmon',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Simple,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
+    imageUrl: 'assets/images/smoked-salmon.jpg',
     duration: 15,
     ingredients: [
       'Arugula',
@@ -230,8 +237,7 @@ const DUMMY_MEALS = const [
     title: 'Delicious Orange Mousse',
     affordability: Affordability.Affordable,
     complexity: Complexity.Hard,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
+    imageUrl: 'assets/images/orange-mousse.jpg',
     duration: 240,
     ingredients: [
       '4 Sheets of Gelatine',
@@ -265,8 +271,7 @@ const DUMMY_MEALS = const [
     title: 'Pancakes',
     affordability: Affordability.Affordable,
     complexity: Complexity.Simple,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
+    imageUrl: 'assets/images/pancakes.jpg',
     duration: 20,
     ingredients: [
       '1 1/2 Cups all-purpose Flour',
@@ -296,8 +301,7 @@ const DUMMY_MEALS = const [
     title: 'Creamy Indian Chicken Curry',
     affordability: Affordability.Pricey,
     complexity: Complexity.Challenging,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
+    imageUrl:'assets/images/Creamy-Indian-Chicken.jpg',
     duration: 35,
     ingredients: [
       '4 Chicken Breasts',
@@ -329,8 +333,7 @@ const DUMMY_MEALS = const [
     title: 'Chocolate Souffle',
     affordability: Affordability.Affordable,
     complexity: Complexity.Hard,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
+    imageUrl: 'assets/images/Chocolate-Souffle.jpg',
     duration: 45,
     ingredients: [
       '1 Teaspoon melted Butter',
@@ -380,8 +383,7 @@ const DUMMY_MEALS = const [
     title: 'Asparagus Salad with Cherry Tomatoes',
     affordability: Affordability.Luxurious,
     complexity: Complexity.Simple,
-    imageUrl:
-        'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
+    imageUrl: 'assets/images/Asparagus-Salad.jpg',
     duration: 30,
     ingredients: [
       'White and Green Asparagus',

@@ -74,12 +74,12 @@ class MealItem extends StatelessWidget {
                         tag: id,
                         child: InteractiveViewer(
                           child: FadeInImage(
-                            width: double.infinity,
-                            placeholder: AssetImage('assets/images/a2.png'),
-                            image: NetworkImage(
-                                imageUrl
-                            ),
-                            fit: BoxFit.cover,
+                             width: double.infinity,
+                             height: double.infinity,
+                             placeholder: AssetImage('assets/images/a2.png'),
+                             image: AssetImage(imageUrl
+                             ),
+                             fit: BoxFit.cover,
                           ),
                         ),
                       )

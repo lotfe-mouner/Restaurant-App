@@ -38,10 +38,15 @@ void main() async {
   ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   final Widget mainScreen;
   MyApp(this.mainScreen);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
 
@@ -49,10 +54,11 @@ class MyApp extends StatelessWidget {
     var accentColor=Provider.of<ThemeProvider>(context,listen: true).accentColor;
     var tm=Provider.of<ThemeProvider>(context,listen: true).tm;
 
-    return MaterialApp(
+
+    return MaterialApp (
       debugShowCheckedModeBanner: false,
       title: 'Meal App',
-      themeMode: tm,
+      themeMode:  tm,
       darkTheme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(primarySwatch: primaryColor).copyWith(secondary: accentColor),
         canvasColor: Color.fromRGBO(14, 22, 33, 1),
@@ -92,7 +98,7 @@ class MyApp extends StatelessWidget {
             ),
       ),
       routes: {
-        '/': (context) => mainScreen,
+        '/': (context) => widget.mainScreen,
         TabScreens.routeName: (context) => TabScreens(),
         CategoryMealScreens.routeName: (context) => CategoryMealScreens(),
         MealDetailScreen.routeName: (context) => MealDetailScreen(),

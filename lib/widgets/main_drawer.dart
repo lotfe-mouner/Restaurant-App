@@ -53,10 +53,10 @@ class MainDrawer extends StatelessWidget {
                 Navigator.of(context).pushReplacementNamed(TabScreens.routeName);
               },context
               ),
-              buildListTile(lan.getTexts('drawer_item2').toString(), Icons.settings, () {
-                Navigator.of(context).pushReplacementNamed(FilterScreens.routeName);
-              },context
-              ),
+              // buildListTile(lan.getTexts('drawer_item2').toString(), Icons.settings, () {
+              //   Navigator.of(context).pushReplacementNamed(FilterScreens.routeName);
+              // },context
+              // ),
               buildListTile(lan.getTexts('drawer_item3').toString(),Icons.color_lens, (){
                 Navigator.pushReplacementNamed(context, ThemesScreen.routeName);
               },context),

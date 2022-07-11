@@ -36,6 +36,8 @@ dev_dependencies:
   provider:
   shared_preferences: ^2.0.13
   flutter_colorpicker: ^1.0.3
+  page_transition: ^2.0.5
+
 
 flutter_icons:
   android: true
@@ -56,6 +58,25 @@ flutter:
   assets:
     - assets/images/image.jpg
     - assets/images/a2.png
+    - assets/images/italian.jpg
+    - assets/images/quick.jpg
+    - assets/images/hamburgers.jpg
+    - assets/images/german.jpg
+    - assets/images/light.jpg
+    - assets/images/exotic.jpg
+    - assets/images/breakfast.jpg
+    - assets/images/Asian.jpg
+    - assets/images/chocolate.jpg
+    - assets/images/spaghetti.jpg
+    - assets/images/toast.jpg
+    - assets/images/burger.jpg
+    - assets/images/schnitzel.jpg
+    - assets/images/smoked-salmon.jpg
+    - assets/images/orange-mousse.jpg
+    - assets/images/pancakes.jpg
+    - assets/images/Creamy-Indian-Chicken.jpg
+    - assets/images/Chocolate-Souffle.jpg
+    - assets/images/Asparagus-Salad.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

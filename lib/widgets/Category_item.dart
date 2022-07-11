@@ -7,8 +7,9 @@ class CategoryItem extends StatelessWidget {
   final String id;
   final String title;
   final Color color;
+  final AssetImage imageUrl;
 
-  CategoryItem(this.id, this.title, this.color);
+  CategoryItem(this.imageUrl,this.id, this.title, this.color);
   
   void selectCategory(BuildContext ctx){
     Navigator.of(ctx).pushNamed(CategoryMealScreens.routeName,
@@ -27,18 +28,24 @@ class CategoryItem extends StatelessWidget {
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(15),
       child: Container(
-        padding: EdgeInsets.all(15),
-        child: Text(lan.getTexts('cat-$id').toString(),style: Theme.of(context).textTheme.headline6,),
+        padding: EdgeInsets.all(10),
+        child: Text(lan.getTexts('cat-$id').toString(),style: Theme.of(context).textTheme.headline6?.copyWith(
+          color: Colors.white,fontSize: 28
+        ),),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
+         /* gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
               color.withOpacity(0.5),
               color,
             ],
-          ),
+          ),*/
           borderRadius: BorderRadius.circular(15),
+          image:DecorationImage(
+            image: imageUrl,
+            fit: BoxFit.cover
+          )
         ),
       ),
     );

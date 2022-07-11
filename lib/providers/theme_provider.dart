@@ -49,7 +49,7 @@ class ThemeProvider with ChangeNotifier {
   getThemeMode() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    prefs.getString('themeText') ?? 's';
+    themeText=prefs.getString('themeText') ?? 's' ;
 
     if (themeText == 'd')
       tm = ThemeMode.dark;
@@ -57,6 +57,7 @@ class ThemeProvider with ChangeNotifier {
       tm = ThemeMode.light;
     else if (themeText == 's')
       tm = ThemeMode.system;
+    notifyListeners();
   }
 
 getThemeColors() async{

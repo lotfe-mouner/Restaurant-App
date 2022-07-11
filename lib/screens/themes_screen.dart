@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal_app/providers/theme_provider.dart';
+import 'package:meal_app/screens/tabs_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
@@ -14,7 +15,6 @@ class ThemesScreen extends StatelessWidget {
 
   RadioListTile<ThemeMode> buildRadioListTile(String title,IconData? icon,ThemeMode themeValue,BuildContext context) {
     return RadioListTile(
-
         title: Text(title),
         secondary: Icon(icon,color: Theme.of(context).iconTheme.color,),
         value: themeValue,
@@ -26,39 +26,45 @@ class ThemesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: fromOnBoarding? AppBar(elevation: 0,backgroundColor: Theme.of(context).canvasColor)
-        : AppBar(
-          title: Text('Your Themes'),
-        ),
-        body: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(20),
-              child: Text('Adjust your theme selection', style: Theme.of(context).textTheme.headline6),
-            ),
-            Expanded(
-                child: ListView(
-                  children: [
-                     Container(
-                       padding:EdgeInsets.all(20),
-                       child: Text('Choose your Theme Mode',style:Theme.of(context).textTheme.headline6),
-                     ),
-                    buildRadioListTile('system Default Theme', null, ThemeMode.system,context),
+    return WillPopScope(
+      onWillPop: () async {
+       await Navigator.of(context).pushReplacementNamed(TabScreens.routeName);
+        return true;
+      },
+      child: Scaffold(
+          appBar: fromOnBoarding? AppBar(elevation: 0,backgroundColor: Theme.of(context).canvasColor)
+          : AppBar(
+            title: Text('Your Themes'),
+          ),
+          body: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(20),
+                child: Text('Adjust your theme selection', style: Theme.of(context).textTheme.headline6),
+              ),
+              Expanded(
+                  child: ListView(
+                    children: [
+                       Container(
+                         padding:EdgeInsets.all(20),
+                         child: Text('Choose your Theme Mode',style:Theme.of(context).textTheme.headline6),
+                       ),
+                      buildRadioListTile('system Default Theme', null, ThemeMode.system,context),
 
-                    buildRadioListTile('Light Theme', Icons.wb_sunny_outlined, ThemeMode.light, context),
+                      buildRadioListTile('Light Theme', Icons.wb_sunny_outlined, ThemeMode.light, context),
 
-                    buildRadioListTile('Dark Theme', Icons.nights_stay_outlined, ThemeMode.dark, context),
+                      buildRadioListTile('Dark Theme', Icons.nights_stay_outlined, ThemeMode.dark, context),
 
-                    buildListTile('primary',context),
-                    buildListTile('accent',context),
-                    SizedBox(height: fromOnBoarding? 80:0)
-                  ],
-            )
-    ),
-          ],
-        ),
-        drawer: fromOnBoarding? null: MainDrawer()
+                      buildListTile('primary',context),
+                      buildListTile('accent',context),
+                      SizedBox(height: fromOnBoarding? 80:0)
+                    ],
+              )
+      ),
+            ],
+          ),
+          drawer: fromOnBoarding? null: MainDrawer()
+      ),
     );
   }
 

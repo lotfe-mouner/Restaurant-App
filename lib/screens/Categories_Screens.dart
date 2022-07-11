@@ -10,15 +10,15 @@ class CategoriesScreens extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridView(
-        padding: EdgeInsets.all(25),
+        padding: EdgeInsets.all(8),
         children: Provider.of<MealProvider>(context,listen: true).availableCategory.map((catData) =>
-        CategoryItem(catData.id,catData.title,catData.color),
+        CategoryItem(catData.imageURL,catData.id,catData.title,catData.color),
         ).toList(),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-          childAspectRatio: 3/2,
-          crossAxisSpacing:20 ,
-          mainAxisSpacing: 20,
+          maxCrossAxisExtent: 400,
+          childAspectRatio: 4/2,
+          crossAxisSpacing:0,
+          mainAxisSpacing: 10,
         ),
       ),
     );
