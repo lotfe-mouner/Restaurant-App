@@ -1,13 +1,13 @@
 Flutter simple restaurant app that displaies different categories of food.
 Offering the advantage of filtering your choices and choosing wether the app displaies in light theme or dark theme.
 
-![Screenshot (12)](https://user-images.githubusercontent.com/92695591/186122489-b28c91f6-43d1-4d08-9021-13edde094f14.png)
-![Screenshot (3)](https://user-images.githubusercontent.com/92695591/186122499-238d2813-5881-4ff9-80db-9d42f9a3330a.png)
-![Screenshot (4)](https://user-images.githubusercontent.com/92695591/186122511-50671095-f36b-4ea2-9d40-d09b2bcfc8d9.png)
-![Screenshot (5)](https://user-images.githubusercontent.com/92695591/186122517-52fdf33c-32fe-46a6-8b1c-aa061695238d.png)
-![Screenshot (6)](https://user-images.githubusercontent.com/92695591/186122524-2e261871-c267-4950-93c1-1da5ae6411b7.png)
-![Screenshot (7)](https://user-images.githubusercontent.com/92695591/186122529-addabd36-1a7b-46ac-a1c0-641851d57121.png)
-![Screenshot (8)](https://user-images.githubusercontent.com/92695591/186122534-54bf6b12-0fab-4137-9aa4-a42527667027.png)
-![Screenshot (9)](https://user-images.githubusercontent.com/92695591/186122541-f50f7c21-030f-47ed-b9f9-03ee2a65bf40.png)
-![Screenshot (10)](https://user-images.githubusercontent.com/92695591/186122546-289af4f9-e4f2-44d7-b4a4-54d1e8f7e8af.png)
-![Screenshot (11)](https://user-images.githubusercontent.com/92695591/186122550-b8efae2e-543b-4f2a-b0c5-603b98bbe6f4.png)
+![1](https://user-images.githubusercontent.com/92695591/186122880-e2b3e547-2dd5-4656-a430-5382de5ca752.png)
+![2](https://user-images.githubusercontent.com/92695591/186122969-fdeff645-385f-467b-b74f-0ba7d5ca30f3.png)
+![3](https://user-images.githubusercontent.com/92695591/186122987-9a03ffd0-61a4-4769-8722-3f1b23c346d5.png)
+![4](https://user-images.githubusercontent.com/92695591/186123001-a0042227-e7a7-46a8-a60a-32bfe03e4238.png)
+![5](https://user-images.githubusercontent.com/92695591/186123012-6c3cc9b6-2026-4027-96d0-6b30333c24fc.png)
+![6](https://user-images.githubusercontent.com/92695591/186123024-9c5d7519-51bd-4f5c-a55d-f5e41b728797.png)
+![7](https://user-images.githubusercontent.com/92695591/186123028-b88d23a9-d4c6-4821-a025-b2f658c850ad.png)
+![8](https://user-images.githubusercontent.com/92695591/186123036-6b322725-851f-425b-ab69-92de78863ca0.png)
+![9](https://user-images.githubusercontent.com/92695591/186123054-36809995-8d36-4e85-8b94-856b4baaf948.png)
+![10](https://user-images.githubusercontent.com/92695591/186123059-62436944-bb79-4d63-9519-6c663e06cd1e.png)
